@@ -30,6 +30,7 @@ jobs:
           #sudo eatmydata rm -rf /usr/share/swift        # 1.3 GB
           #sudo eatmydata rm -rf /usr/local/graalvm      # 1.0 GB
           df -h
+          df -i
 
       - name: Extract vector tiles from archive
         run: |
