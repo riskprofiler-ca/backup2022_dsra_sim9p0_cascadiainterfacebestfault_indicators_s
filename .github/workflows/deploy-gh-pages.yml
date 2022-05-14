@@ -39,7 +39,8 @@ jobs:
           tileset="$(basename *.zip.aa .zip.aa)"
           cat *.zip.?? > "$tileset.zip"
           ls -l *.zip
-          time eatmydata unzip -q "$tileset.zip"
+          # Exclude zoom-level 15 so as not to exceed the (approximately) 10 million inodes limit
+          time eatmydata unzip -q "$tileset.zip" -x "$tileset/EPSG_*/15/*"
           ls -l "$tileset.zip"
           mv "$tileset" public
           ls -l public
